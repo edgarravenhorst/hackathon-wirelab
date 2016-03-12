@@ -15,6 +15,5 @@ game.stage.on("stagemousemove", function(evt) {
   circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 10);
   circle.x = evt.stageX;
   circle.y = evt.stageY;
-  console.log(evt);
   game.stage.addChild(circle);
 })
