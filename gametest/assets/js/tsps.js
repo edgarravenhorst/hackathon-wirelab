@@ -1,31 +1,33 @@
 var GameTSPS = function(local){
   this.is_local = (typeof $$gamesetup.is_local != 'undefined') ? $$gamesetup.is_local : true;
 
-  if( this.is_local ){
-    this.connection = new TSPS.Connection()
-  }else{
-    this.connection = new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
-  }
 
-  this.onEnterfunc = function(data){console.log(data)}
-  this.onPersonMoved = function(data){console.log(data)}
-  this.onPersonUpdated = function(data){console.log(data)}
-  this.onPersonLeft = function(data){console.log(data)}
+  $(document).ready( function() {
+    if( this.is_local ){
+      this.connection = new TSPS.Connection()
+    }else{
+      this.connection = new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
+    }
 
-  this.connection.onPersonEntered = this.onEnterFunc;
-  this.connection.onPersonMoved = this.onMovedFunc;
-  this.connection.onPersonUpdated = this.onUpdatedFunc;
-  this.connection.onPersonLeft = this.onLeaveFunc;
+    this.connection.connect();
 
-  this.connection.connect();
+    this.onEnterfunc = function(data){console.log(data)}
+    this.onPersonMoved = function(data){console.log(data)}
+    this.onPersonUpdated = function(data){console.log(data)}
+    this.onPersonLeft = function(data){console.log(data)}
+
+    this.connection.onPersonEntered = this.onEnterfunc
+    this.connection.onPersonMoved = this.onPersonMoved
+    this.connection.onPersonUpdated = this.onPersonUpdated
+    this.connection.onPersonLeft = this.onPersonLeft
+  })
 }
-
 var tsps = new GameTSPS();
 
 if(typeof Game != "undefined")
   Game.prototype.tsps = {
 
-    followAxis: function(obj, axis, delay){
+    followAxis: function(easelObj, axis, delay){
 
     },
 
