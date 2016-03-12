@@ -6,4 +6,9 @@ body {
 #gameCanvas {
   background: #fff;
   border: 1px solid #aaa;
-  margin: auto; }
+  position: absolute;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+/*    margin: 0 auto; */
+}
