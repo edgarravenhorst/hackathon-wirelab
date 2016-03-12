@@ -1,0 +1,11 @@
+/* line 1, ../sass/game.scss */
+body {
+  background: #f5f5f5; }
+
+/* line 5, ../sass/game.scss */
+#gameCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
