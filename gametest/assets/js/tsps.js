@@ -12,5 +12,9 @@ if(typeof Game != "undefined")
       //calculate velocity, angle, etc
       //complete Action
       onCompleteFunc(velocity, angle);
+    },
+
+    startDrawing: function(radius, timeout) {
+
     }
   }
