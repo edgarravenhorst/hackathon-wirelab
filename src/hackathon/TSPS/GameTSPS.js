@@ -4,12 +4,7 @@ var GameTSPS = function(local){
   this.onEnterList = [];
   this.onLeaveList = [];
 
-  if( this.is_local ){
-    this.connection = new TSPS.Connection()
-
-  }else{
-    this.connection = new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
-  }
+  this.connection = this.is_local ? new TSPS.Connection() : new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
 
   this.onUpdate = function(onUpdateFunc){
     this.onUpdateList.push(onUpdateFunc);

@@ -21,6 +21,8 @@
         "/Applications/MAMP/htdocs/wirelab/git/hackathon-wirelab/src/EaselBox/examples/js/ghostsAndMonsters.js",
         "/Applications/MAMP/htdocs/wirelab/git/hackathon-wirelab/src/EaselBox/examples/js/gravityDemo.js",
         "/Applications/MAMP/htdocs/wirelab/git/hackathon-wirelab/src/EaselBox/examples/js/easelBox.js",
-        "/Applications/MAMP/htdocs/wirelab/git/hackathon-wirelab/gametest/assets/js/tsps.js"
+        "/Applications/MAMP/htdocs/wirelab/git/hackathon-wirelab/gametest/assets/js/tsps.js",
+        "/home/edgar/wirelab/src/EaseJs/extras/FauxCanvas/FauxCanvas.js",
+        "/home/edgar/wirelab/gametest/assets/js/main.js"
     ]
 }
