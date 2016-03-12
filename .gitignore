@@ -3,8 +3,5 @@
 # Example .gitignore files: https://github.com/github/gitignore
 /bower_components/
 /node_modules/
-<<<<<<< HEAD
 /gametest/.sass-cache/
-=======
 /imageReveal/
->>>>>>> origin/master
