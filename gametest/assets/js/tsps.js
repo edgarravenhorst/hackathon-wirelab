@@ -9,6 +9,7 @@ var GameTSPS = function(local){
 
   if( this.is_local ){
     this.connection = new TSPS.Connection()
+
   }else{
     this.connection = new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
   }
