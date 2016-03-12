@@ -1,34 +1,34 @@
+var tsps
+$(document).ready( function() {
+  tsps = new GameTSPS();
+  tsps.connection.connect();
+})
+
 var GameTSPS = function(local){
   this.is_local = (typeof $$gamesetup.is_local != 'undefined') ? $$gamesetup.is_local : true;
 
+  if( this.is_local ){
+    this.connection = new TSPS.Connection()
+  }else{
+    this.connection = new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
+  }
 
-  $(document).ready( function() {
-    if( this.is_local ){
-      this.connection = new TSPS.Connection()
-    }else{
-      this.connection = new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
-    }
+  this.connection.onPersonEntered = function(data){}
+  this.connection.onPersonMoved = function(data){}
+  this.connection.onPersonUpdated = function(data){}
+  this.connection.onPersonLeft = function(data){}
 
-    this.connection.connect();
-
-    this.onEnterfunc = function(data){console.log(data)}
-    this.onPersonMoved = function(data){console.log(data)}
-    this.onPersonUpdated = function(data){console.log(data)}
-    this.onPersonLeft = function(data){console.log(data)}
-
-    this.connection.onPersonEntered = this.onEnterfunc
-    this.connection.onPersonMoved = this.onPersonMoved
-    this.connection.onPersonUpdated = this.onPersonUpdated
-    this.connection.onPersonLeft = this.onPersonLeft
-  })
 }
-var tsps = new GameTSPS();
 
 if(typeof Game != "undefined")
   Game.prototype.tsps = {
 
-    followAxis: function(easelObj, axis, delay){
-
+    follow: function(stageObj){
+      tsps.connection.onPersonUpdated = function(data){
+        console.log(stageObj, data.boundingrect.x - data.boundingrect.width/2 * 1024,  data.boundingrect.y - data.boundingrect.height/2 * 768)
+        stageObj.stageX = data.boundingrect.x * 1024
+        stageObj.stageY = data.boundingrect.y * 768
+      }
     },
 
     catapultAction: function(onCompleteFunc) {
@@ -40,7 +40,11 @@ if(typeof Game != "undefined")
       onCompleteFunc(velocity, angle);
     },
 
-    startDrawing: function(radius, timeout) {
-
+    drawLine: function(brush, stage) {
+      tsps.connection.onPersonUpdated = function(data){
+        var circle = new createjs.Shape();
+        circle.graphics.beginFill("DeepSkyBlue").drawCircle(data.boundingrect.x * 1024,  data.boundingrect.y * 768, 10);
+        stage.addChild(circle);
+      }
     }
   }
