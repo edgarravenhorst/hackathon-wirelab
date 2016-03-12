@@ -5,8 +5,8 @@ GameTSPS.prototype.follow = function(stageObj, offset){
     
     createjs.Tween.get(stageObj, {override:true}).to(
       {
-        x: ((1-data.boundingrect.x) + data.boundingrect.width/2) * $$gamesetup.gameWidth - offset.x,
-        y: ((1-data.boundingrect.y) + data.boundingrect.height) * $$gamesetup.gameHeight - offset.y
-      }, 50);
+        x: ((data.boundingrect.x) + data.boundingrect.width/2) * $$gamesetup.gameWidth - offset.x,
+        y: ((data.boundingrect.y) + data.boundingrect.height) * $$gamesetup.gameHeight - offset.y
+      }, 100);
   });
 }
