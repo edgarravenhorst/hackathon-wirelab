@@ -1,9 +1,3 @@
-var tsps
-$(document).ready( function() {
-  tsps = new GameTSPS();
-  tsps.connection.connect();
-})
-
 var GameTSPS = function(local){
   this.is_local = (typeof $$gamesetup.is_local != 'undefined') ? $$gamesetup.is_local : true;
 
@@ -19,3 +13,4 @@ var GameTSPS = function(local){
   this.connection.onPersonUpdated = function(data){}
   this.connection.onPersonLeft = function(data){}
 }
+

@@ -23,7 +23,4 @@ var Game = function(){
   this.set = function(prop, value){
     return this.properties[prop] = value;
   }
-
-
 }
-
