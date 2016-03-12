@@ -1,5 +1,22 @@
 {
     "jscodehints.detectedExclusions": [
-        "/Applications/MAMP/htdocs/wirelab/git/hackathon-wirelab/src/PreloadJS/_assets/static/scriptExample.js"
+        "/home/edgar/wirelab/src/EaseJs/_assets/art/VectorButton.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/filters/AlphaMapFilter.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/filters/ColorFilter.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/filters/BlurFilter.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/filters/AlphaMaskFilter.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/filters/Filter.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/display/Sprite.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/display/Text.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/display/SpriteStage.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/display/BitmapText.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/display/Shape.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/display/MovieClip.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/filters/ColorMatrix.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/display/SpriteContainer.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/geom/Matrix2D.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/filters/ColorMatrixFilter.js",
+        "/home/edgar/wirelab/gametest/assets/js/game.js",
+        "/home/edgar/wirelab/src/EaseJs/src/easeljs/display/Graphics.js"
     ]
 }
