@@ -6,17 +6,18 @@ var GameTSPS = function(local){
   }else{
     this.connection = new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
   }
-  this.connection.connect();
+
+  this.onEnterfunc = function(data){console.log(data)}
+  this.onPersonMoved = function(data){console.log(data)}
+  this.onPersonUpdated = function(data){console.log(data)}
+  this.onPersonLeft = function(data){console.log(data)}
 
   this.connection.onPersonEntered = this.onEnterFunc;
   this.connection.onPersonMoved = this.onMovedFunc;
   this.connection.onPersonUpdated = this.onUpdatedFunc;
   this.connection.onPersonLeft = this.onLeaveFunc;
 
-  this.onEnterfunc = function(event){console.log(event)}
-  this.onPersonMoved = function(event){console.log(event)}
-  this.onPersonUpdated = function(event){console.log(event)}
-  this.onPersonLeft = function(event){console.log(event)}
+  this.connection.connect();
 }
 
 var tsps = new GameTSPS();
