@@ -1,5 +1,8 @@
 var GameTSPS = function(local){
   this.is_local = (typeof $$gamesetup.is_local != 'undefined') ? $$gamesetup.is_local : true;
+  this.onUpdateList = [];
+  this.onEnterList = [];
+  this.onLeaveList = [];
 
   if( this.is_local ){
     this.connection = new TSPS.Connection()
@@ -8,9 +11,26 @@ var GameTSPS = function(local){
     this.connection = new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
   }
 
-  this.connection.onPersonEntered = function(data){}
-  this.connection.onPersonMoved = function(data){}
-  this.connection.onPersonUpdated = function(data){}
-  this.connection.onPersonLeft = function(data){}
+  this.onUpdate = function(onUpdateFunc){
+    this.onUpdateList.push(onUpdateFunc);
+  }
+  this.onEnter = function(onEnterFunc){
+    this.onEnterList.push(onEnterFunc);
+  }
+  this.onLeave = function(onLeaveFunc){
+    this.onLeaveList.push(onLeaveFunc);
+  }
+
+  this.callFunctions = function(data){
+    for (i in this) {
+      this[i](data);
+    }
+  }
+
+  this.connection.onPersonEntered = this.callFunctions.bind(this.onEnterList)
+  this.connection.onPersonMoved = this.callFunctions.bind(this.onUpdateList)
+  this.connection.onPersonUpdated = this.callFunctions.bind(this.onUpdateList)
+  this.connection.onPersonLeft = this.callFunctions.bind(this.onLeaveList)
 }
+
 
