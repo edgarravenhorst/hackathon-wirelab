@@ -25,34 +25,22 @@
     <script src="../src/jquery-1.7.1.min.js"></script>
     <script src="../src/EaseJs/lib/easeljs-0.8.2.min.js"></script>
     <script src="../src/TweenJS/lib/tweenjs-0.6.2.min.js"></script>
+    <script src="../src/TweenJS/lib/tweenjs-0.6.2.min.js"></script>
     <script src="../src/TSPS/TSPS-1.2.js"></script>
     <script src="../src/EaselBox/examples/js/lib/Box2dWeb-2.1.a.3.min.js"></script>
     <script src="../src/EaselBox/examples/js/easelBox.js"></script>
 
     <script src="../src/hackathon/Game.js"></script>
+    <script src="../src/hackathon/game/websocket.js"></script>
     <script src="../src/hackathon/game/mousePerson.js"></script>
     <script src="../src/hackathon/TSPS/GameTSPS.js"></script>
     <script src="../src/hackathon/TSPS/src/follow.js"></script>
     <script src="../src/hackathon/TSPS/src/draw.js"></script>
     <script src="../src/hackathon/TSPS/src/catapult.js"></script>
 
-
     <script src="assets/js/obj/animatedCircle.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <script>
-
-      var socket = new WebSocket('ws://localhost:8080/my_custom_id');
-      window.socket = socket;
-
-      socket.onmessage = function(event) {
-        console.log(event.data);
-      };
-
-      socket.onopen = function(event) {
-      };
-
-    </script>
 
 
   </body>

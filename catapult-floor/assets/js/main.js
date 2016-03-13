@@ -1,6 +1,8 @@
 var game = new Game();
 var initGame = game.init.bind(game);
+var socket = game.websocket("192.168.1.147", "8080", "catapult");
 
+socket.connect();
 
 $(document).ready( function() {
   var persons = [];
@@ -69,6 +71,7 @@ $(document).ready( function() {
     game.stage.addChild(personShape);
     persons[0] = personShape;
   });
+
   $("#gameCanvas").on("mouseout", function(){
     game.stage.removeChild(personShape);
     persons.splice(0, 1);
@@ -78,13 +81,25 @@ $(document).ready( function() {
     console.log("shoot");
     is_shooting = true;
 
-    console.log( 900 - (person.y-300) * 1.5 );
+    createjs.Tween.get(dopHolder, {override:true}).to(
+      {
+        x: $$gamesetup.gameWidth/2 - dopHolder.getBounds().width/4 ,
+        y: 200
+      },  1500 - (person.y-300) * 1.5,
+      createjs.Ease.elasticOut)
 
     createjs.Tween.get(dop, {override:true}).to(
       {
         x: ($$gamesetup.gameWidth - person.x) ,
         y: 0
-      },  900 - (person.y-300) * 1.5);
+      },  700 - (person.y-300) * 1.5)
+      .call(function(){
+      socket.sendJson({
+        type: "shot",
+        velocity: person.y,
+        shotX: ($$gamesetup.gameWidth - person.x)
+      });
+    });
 
     setTimeout(function(){
       is_shooting = false;
@@ -104,12 +119,23 @@ $(document).ready( function() {
         catapult.start();
       }
 
-      dopHolder.x = person.x - dopHolder.getBounds().width/4;
-      dopHolder.y = person.y - 75;
+
+
 
       if(!is_shooting) {
+        dopHolder.x = person.x - dopHolder.getBounds().width/4;
+        dopHolder.y = person.y - 75;
+
         dop.x = person.x - dop.getBounds().width/4;
         dop.y = dopHolder.y+20;
+
+        socket.sendJson({
+          type: "aim",
+          crosshairX: person.x,
+          crosshairY: person.y
+        });
+
+
       }
 
       string_left.graphics.clear();
@@ -125,6 +151,7 @@ $(document).ready( function() {
       string_right.graphics.moveTo($$gamesetup.gameWidth-30, $$gamesetup.gameHeight/2-165);
       string_right.graphics.lineTo(dopHolder.x-5+dopHolder.getBounds().width/2, dopHolder.y+5);
       string_right.graphics.endStroke();
+
     }else{
       catapult = false;
     }
