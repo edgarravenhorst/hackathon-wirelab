@@ -51,6 +51,7 @@
         "/var/www/html/wirelab/src/EaseJs/tests/spec/EventsSpec.js",
         "/var/www/html/wirelab/src/TSPS/TSPS-1.2.js",
         "/var/www/html/wirelab/src/TweenJS/src/tweenjs/Timeline.js",
-        "/var/www/html/wirelab/catapult/assets/js/main.js"
+        "/var/www/html/wirelab/catapult/assets/js/main.js",
+        "/Applications/MAMP/htdocs/wirelab/git/hackathon-wirelab/src/EaseJs/extras/FIlters/ThresholdFilter.js"
     ]
 }

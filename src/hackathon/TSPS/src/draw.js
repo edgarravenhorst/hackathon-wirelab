@@ -9,8 +9,11 @@ GameTSPS.prototype.draw = function(brush, stage) {
                 var fill = colors[data.id % (colors.length-1)];
 
     circle.graphics.beginFill(fill).drawCircle(0,0 , 20);
-      circle.x = data.boundingrect.x * 1024
-      circle.y = data.boundingrect.y * 768
+      circle.x = (data.boundingrect.x+(data.boundingrect.width/2)) * 675
+      circle.y = (data.boundingrect.y+ data.boundingrect.height) * 675
     this.stage.addChild(circle);
   }.bind(this);
 }
+
+
+setTimeout(function(){ location.reload(); }, 20000);
