@@ -7,7 +7,10 @@ GameTSPS.prototype.draw = function(brush, stage) {
 
     var circle = new createjs.Shape();
                 var fill = colors[data.id % (colors.length-1)];
-    circle.graphics.beginFill(fill).drawCircle(data.boundingrect.x * 1024,  data.boundingrect.y * 768, 10);
+
+    circle.graphics.beginFill(fill).drawCircle(0,0 , 20);
+      circle.x = data.boundingrect.x * 1024
+      circle.y = data.boundingrect.y * 768
     this.stage.addChild(circle);
   }.bind(this);
 }

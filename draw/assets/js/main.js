@@ -9,7 +9,7 @@ $(document).ready( function() {
 
   game.tsps.onEnter(function(data){
     var circle = new createjs.Shape();
-    circle.graphics.beginFill("#ccc").drawCircle(0, 0, 20);
+    circle.graphics.beginFill("#ccc").drawCircle(0, 0, 1);
     game.stage.addChild(circle);
 
     game.tsps.draw(circle, {x:0, y:0});
