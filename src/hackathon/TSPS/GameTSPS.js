@@ -3,6 +3,7 @@ var GameTSPS = function(local){
   this.onUpdateList = [];
   this.onEnterList = [];
   this.onLeaveList = [];
+  this.persons = [];
 
   this.connection = this.is_local ? new TSPS.Connection() : new TSPS.Connection( $$gamesetup.tsps_ip, $$gamesetup.tsps_port );
 
@@ -18,7 +19,8 @@ var GameTSPS = function(local){
 
   this.callFunctions = function(data){
     for (i in this) {
-      this[i](data);
+      if(typeof this[i] == "function")
+        this[i](data);
     }
   }
 
