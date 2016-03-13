@@ -58,7 +58,6 @@ $(document).ready( function() {
 
   var personShape = new createjs.Shape();
   personShape.graphics.beginFill("green").drawCircle(0, 0, 50);
-  game.stage.addChild(personShape);
 
   game.stage.addEventListener("stagemousemove", function(evt){
 
@@ -78,7 +77,6 @@ $(document).ready( function() {
   });
 
   shootTimeOut = setInterval(function(){
-    console.log("shoot");
     is_shooting = true;
 
     createjs.Tween.get(dopHolder, {override:true}).to(
@@ -119,9 +117,6 @@ $(document).ready( function() {
         catapult.start();
       }
 
-
-
-
       if(!is_shooting) {
         dopHolder.x = person.x - dopHolder.getBounds().width/4;
         dopHolder.y = person.y - 75;
@@ -134,8 +129,6 @@ $(document).ready( function() {
           crosshairX: person.x,
           crosshairY: person.y
         });
-
-
       }
 
       string_left.graphics.clear();

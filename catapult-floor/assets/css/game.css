@@ -4,7 +4,7 @@ body {
 
 /* line 5, ../sass/game.scss */
 #gameCanvas {
-  background: #fff;
+  background: #000;
   border: 1px solid #aaa;
   position: absolute;
     left:50%;
